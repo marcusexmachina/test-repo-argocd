@@ -5,7 +5,7 @@ metadata:
   name: aws-for-fluent-bit
   namespace: argocd
   finalizers:
-  - resources-finalizer.argocd.argoproj.io
+    - resources-finalizer.argocd.argoproj.io
 spec:
   project: default
   source:
@@ -14,26 +14,20 @@ spec:
     targetRevision: HEAD
     helm:
       parameters:
-      - name: aws-for-fluent-bit.cloudWatch.region
-        value: {{ .Values.region }}
+      - name: aws-for-fluent-bit.serviceAccount.create
+        value: {{ .Values.awsForFluentBit.serviceAccountCreate }}
       - name: aws-for-fluent-bit.serviceAccount.name
         value: {{ .Values.awsForFluentBit.serviceAccountName }}
-      - namle: aws-for-fluent-bit.serviceAccount.create
-        value: {{ .Values.awsForFluentBit.serviceAccountName.create }}
+      - name: aws-for-fluent-bit.cloudWatch.region
+        value: {{ .Values.region }}
       - name: aws-for-fluent-bit.cloudWatch.serviceAccount.name
         value: {{ .Values.awsForFluentBit.serviceAccountName }}
       - name: aws-for-fluent-bit.cloudWatch.logGroupName
         value: {{ .Values.awsForFluentBit.logGroupName }}
-      - name: aws-for-fluent-bit.firehose.enabled
-        value: {{ .Values.awsForFluentBit.firehose.enabled }}
       - name: aws-for-fluent-bit.firehose.region
         value: {{ .Values.region }}
-      - name: aws-for-fluent-bit.kinesis.enabled
-        value: {{ .Values.awsForFluentBit.kinesis.enabled }}
       - name: aws-for-fluent-bit.kinesis.region
         value: {{ .Values.region }}
-      - name: aws-for-fluent-bit.elasticsearch.enabled
-        value: {{ .Values.awsForFluentBit.elasticsearch.enabled }}
       - name: aws-for-fluent-bit.elasticsearch.region
         value: {{ .Values.region }}
   destination:
@@ -47,7 +41,7 @@ spec:
     automated:
       prune: true
     syncOptions:
-    - CreateNamespace=true
+      - CreateNamespace=true
     retry:
       limit: 1
       backoff:
