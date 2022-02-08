@@ -14,8 +14,6 @@ spec:
     targetRevision: HEAD
     helm:
       parameters:
-      - name: aws-for-fluent-bit.serviceAccount.create
-        value: {{ .Values.awsForFluentBit.serviceAccountCreate }}
       - name: aws-for-fluent-bit.serviceAccount.name
         value: {{ .Values.awsForFluentBit.serviceAccountName }}
       - name: aws-for-fluent-bit.cloudWatch.region
