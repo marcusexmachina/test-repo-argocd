@@ -1,6 +1,7 @@
+---
 apiVersion: v2
-name: metrics-server
-description: A Helm chart for installing Metrics Server
+name: karpenter
+description: A Helm chart for Karpenter Autoscaler
 
 # Application charts are a collection of templates that can be packaged into versioned archives
 # to be deployed.
@@ -15,6 +16,6 @@ version: 0.1.0
 appVersion: "1.0"
 
 dependencies:
-- name: metrics-server
-  version: 3.5.0
-  repository: https://kubernetes-sigs.github.io/metrics-server
+- name: karpenter
+  version: 0.6.1
+  repository: https://charts.karpenter.sh

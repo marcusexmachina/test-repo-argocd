@@ -1,3 +1,4 @@
+---
 apiVersion: v2
 name: aws-for-fluent-bit
 description: A Helm chart for installing AWS for Fluent Bit

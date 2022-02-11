@@ -25,3 +25,11 @@ awsForFluentBit:
 # Metrics Server Values
 metricsServer:
   enable: false
+
+# Karpenter Values
+karpenter:
+  awsDefaultInstanceProfile:
+  controllerClusterEndpoint:
+  controllerClusterName:
+  enable: false
+  serviceAccountName:

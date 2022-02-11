@@ -1,12 +1,12 @@
+---
 # https://github.com/aws/eks-charts/blob/master/stable/aws-for-fluent-bit/values.yaml
 aws-for-fluent-bit:
-
   global:
   ## Override the deployment namespace
     namespaceOverride: logging
 
   serviceAccount:
-    create: true
+    create: false
     name: ""
 
   cloudWatch:

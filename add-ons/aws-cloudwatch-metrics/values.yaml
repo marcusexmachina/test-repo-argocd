@@ -1,5 +1,5 @@
 aws-cloudwatch-metrics:
   clusterName: ""
-  serviceAccount: 
+  serviceAccount:
     create: false
     name: "aws-cloudwatch-metrics-sa"
