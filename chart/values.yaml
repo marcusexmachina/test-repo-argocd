@@ -13,7 +13,7 @@ awsForFluentBit:
   enable: false
   serviceAccount:
     name:
-    create: true
+    create: false
   logGroupName:
   firehose:
     enabled: false
@@ -21,6 +21,10 @@ awsForFluentBit:
     enabled: false
   elasticsearch:
     enabled: false
+  extraParsers: {}
+  extraInputs: {}
+  extraFilters: {}
+  extraOutputs: {}
 
 # Metrics Server Values
 metricsServer:

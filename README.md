@@ -1,11 +1,28 @@
 # argocd-infra-deployment
 
 - [argocd-infra-deployment](#argocd-infra-deployment)
+  - [current add-ons](#current-add-ons)
+    - [Fluent bit](#fluent-bit)
   - [manual testing](#manual-testing)
     - [addons](#addons)
     - [karpenter testing](#karpenter-testing)
   - [Dev](#dev)
     - [Linting](#linting)
+
+## current add-ons
+
+1. [aws-cloudwatch-metrics](https://aws.github.io/eks-charts)
+1. [aws-for-fluent-bit](https://aws.github.io/eks-charts)
+1. [karpenter](https://charts.karpenter.sh)
+1. [metrics-server](https://kubernetes-sigs.github.io/metrics-server)
+
+### Fluent bit
+
+If you need anything outside of the base fluent-bit configs, update the `add-ons/aws-for-fluent-bit/values.yaml` under the following sections
+    * `extraParsers:`
+    * `extraInputs:`
+    * `extraFilters:`
+    * `extraOutputs:`
 
 ## manual testing
 

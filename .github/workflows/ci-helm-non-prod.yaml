@@ -47,4 +47,4 @@ jobs:
         name: Run chart-testing (lint)
         id: helm-lint
         run: |
-          ct lint --chart-dirs helm/ --debug --target-branch main --config testing/helm/test/ct.yaml
+          ct lint --chart-dirs helm/ --debug --target-branch main --config testing/helm/ct.yaml

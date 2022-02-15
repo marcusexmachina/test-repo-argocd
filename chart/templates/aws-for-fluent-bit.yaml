@@ -22,12 +22,40 @@ spec:
         value: {{ .Values.awsForFluentBit.serviceAccountName }}
       - name: aws-for-fluent-bit.cloudWatch.logGroupName
         value: {{ .Values.awsForFluentBit.logGroupName }}
+      {{ if .Values.awsForFluentBit.firehoseEnable }}
+      - name: aws-for-fluent-bit.firehose.enable
+        value: "{{ .Values.awsForFluentBit.firehoseEnable }}"
       - name: aws-for-fluent-bit.firehose.region
         value: {{ .Values.region }}
+      {{ end }}
+      {{ if .Values.awsForFluentBit.kinesisEnable }}
+      - name: aws-for-fluent-bit.kinesis.enable
+        value: "{{ .Values.awsForFluentBit.kinesisEnable }}"
       - name: aws-for-fluent-bit.kinesis.region
         value: {{ .Values.region }}
+      {{ end }}
+      {{ if .Values.awsForFluentBit.elasticsearchEnable }}
+      - name: aws-for-fluent-bit.elasticsearch.enable
+        value: "{{ .Values.awsForFluentBit.elasticsearchEnable }}"
       - name: aws-for-fluent-bit.elasticsearch.region
         value: {{ .Values.region }}
+      {{ end }}
+      {{ if .Values.awsForFluentBit.extraParsers }}
+      - name: aws-for-fluent-bit.extraParsers
+        value: "{{ .Values.extraParsers }}"
+      {{ end }}
+      {{ if .Values.awsForFluentBit.extraFilters }}
+      - name: aws-for-fluent-bit.extraFilters
+        value: "{{ .Values.extraFilters }}"
+      {{ end }}
+      {{ if .Values.awsForFluentBit.extraInputs }}
+      - name: aws-for-fluent-bit.extraInputs
+        value: "{{ .Values.extraInputs }}"
+      {{ end }}
+      {{ if .Values.awsForFluentBit.extraOutputs }}
+      - name: aws-for-fluent-bit.extraOutputs
+        value: "{{ .Values.extraOutputs }}"
+      {{ end }}
   destination:
     server: https://kubernetes.default.svc
     {{ if .Values.awsForFluentBit.namesapce }}
