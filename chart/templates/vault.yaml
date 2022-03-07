@@ -1,0 +1,47 @@
+{{- if and (.Values.vault) (.Values.vault.enable) -}}
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: vault
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+  source:
+    repoURL: {{ .Values.repo_url }}
+    path: add-ons/vault
+    targetRevision: HEAD
+    helm:
+      parameters:
+      - name: vault.server.serviceAccount.name
+        value: {{ .Values.vault.serviceAccountName }}
+      - name: vault.server.extraEnvironmentVars.AWS_REGION
+        value: {{ .Values.region }}
+      - name: vault.server.extraEnvironmentVars.VAULT_AWSKMS_SEAL_KEY_ID
+        value: {{ .Values.vault.vault_kms_id }}
+      - name: vault.server.extraEnvironmentVars.VAULT_SEAL_TYPE
+        value: {{ .Values.vault.vault_seal_type }}
+      - name: vault.server.ingress.hosts[0].host
+        value: {{ .Values.vault.vault_dns }}
+      valueFiles:
+        - values.yaml
+  destination:
+    server: https://kubernetes.default.svc
+    {{ if .Values.vault.namesapce }}
+    namespace: {{ .Values.vault.namesapce }}
+    {{ else }}
+    namespace: vault
+    {{ end }}
+  syncPolicy:
+    automated:
+      prune: true
+    syncOptions:
+      - CreateNamespace=true
+    retry:
+      limit: 1
+      backoff:
+        duration: 5s
+        factor: 2
+        maxDuration: 1m
+{{- end -}}

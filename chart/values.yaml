@@ -32,8 +32,18 @@ metricsServer:
 
 # Karpenter Values
 karpenter:
+  enable: false
   awsDefaultInstanceProfile:
   controllerClusterEndpoint:
   controllerClusterName:
-  enable: false
   serviceAccountName:
+
+# vault Values
+vault:
+  enable: false
+  serviceAccount:
+    name: vault
+    create: false
+  vault_kms_id: ""
+  vault_seal_type: "awskms"
+  vault_dns: ""

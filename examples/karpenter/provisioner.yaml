@@ -14,9 +14,9 @@ spec:
     resources:
       cpu: 100
   provider:
-    instanceProfile: "aws002-preprod-dev-eks-managed-ondemand" # self-managed IAM Instance profile Name
+    instanceProfile: "aws005-jmctest-teod-eks-managed-ondemand" # self-managed IAM Instance profile Name
     subnetSelector:
-      Name: "*aws002-preprod-dev-vpc-private*"
+      Name: "*aws005-jmctest-teod-vpc-private*"
     securityGroupSelector:
-      Name: "*aws002-preprod-dev-eks*"
+      Name: "*aws005-jmctest-teod-eks*"
   ttlSecondsAfterEmpty: 30

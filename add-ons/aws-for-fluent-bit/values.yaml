@@ -93,7 +93,7 @@ aws-for-fluent-bit:
 #     Format template
 #     Template {time} used={Mem.used} free={Mem.free} total={Mem.total}
 
-extraOutputs: |
+  extraOutputs: |
     [OUTPUT]
         # Re: BBSECAWS-221, also see: https://bitbuy.atlassian.net/l/c/p3AboJs2
         Name cloudwatch_logs
