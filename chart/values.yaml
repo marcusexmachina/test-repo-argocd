@@ -38,6 +38,16 @@ karpenter:
   controllerClusterName:
   serviceAccountName:
 
+# Karpenter Provisioner Values
+karpenterProvisioner:
+  enable: false
+  defaultName: default
+  defaultCapacityType:
+  defaultInstanceType:
+  defaultInstanceProfileName:
+  defaultSubnetName:
+  defaultSgName:
+  
 # vault Values
 vault:
   enable: false

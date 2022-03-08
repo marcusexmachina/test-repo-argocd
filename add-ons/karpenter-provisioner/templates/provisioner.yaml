@@ -1,0 +1,36 @@
+{{- range $key, $val := .Values.provisionerConfig }}
+apiVersion: karpenter.sh/v1alpha5
+kind: Provisioner
+metadata:
+  name: "{{ $val.name }}"
+spec:
+  requirements:
+    - key: "karpenter.sh/capacity-type"
+      operator: In
+      values:
+        {{- if $val.capacityType }}
+        - {{ $val.capacityType }}
+        {{- else }}
+        - "spot"
+        - "on-demand"
+        {{- end }}
+    - key: "node.kubernetes.io/instance-type"
+      operator: In
+      values:
+        {{- if $val.instanceType }}
+        - {{ $val.instanceType }}
+        {{- else }}
+        - "t3.medium"
+        - "t3a.medium"
+        {{- end }}
+  limits:
+    resources:
+      cpu: 100
+  provider:
+    instanceProfile: {{ $val.instanceProfileName }}
+    subnetSelector:
+      Name: {{ $val.subnetName | quote }}
+    securityGroupSelector:
+      Name: {{ $val.sgName | quote }}
+  ttlSecondsAfterEmpty: 30
+{{- end }}
