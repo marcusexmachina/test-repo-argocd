@@ -1,6 +1,6 @@
-# argocd-infra-deployment
+# bb-argocd-middleware-deployment
 
-- [argocd-infra-deployment](#argocd-infra-deployment)
+- [bb-argocd-middleware-deployment](#bb-argocd-middleware-deployment)
   - [current add-ons](#current-add-ons)
     - [Fluent bit](#fluent-bit)
   - [manual testing](#manual-testing)
