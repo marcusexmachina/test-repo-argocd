@@ -1,5 +1,5 @@
 # Global Values
-repo_url: "https://github.com/bitbuy-infrastructure/argocd-infra-deployment.git"
+repo_url: "https://github.com/bitbuy-infrastructure/bb-argocd-middleware-deployment.git"
 region: ""
 account: ""
 clusterName: ""
@@ -57,3 +57,9 @@ vault:
   vault_kms_id: ""
   vault_seal_type: "awskms"
   vault_dns: ""
+
+#postgres
+postgresql:
+  enable: false
+  secretName: "postgresql-secret"
+  imageTag: "13.5.0-debian-10-r87"
