@@ -1,5 +1,5 @@
 # Global Values
-repo_url: "https://github.com/bitbuy-infrastructure/bb-argocd-middleware-deployment.git"
+repo_url: ""
 region: ""
 account: ""
 clusterName: ""
