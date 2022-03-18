@@ -1,9 +1,0 @@
-postgresql:
-  auth:
-    username: "app-admin"
-    database: "app-db"        
-    existingSecret: "postgresql-secret"
-  image:
-    registry: "docker.io"
-    repository: "bitnami/postgresql"
-    tag: "13.5.0-debian-10-r87"

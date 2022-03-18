@@ -47,7 +47,7 @@ karpenterProvisioner:
   defaultInstanceProfileName:
   defaultSubnetName:
   defaultSgName:
-  
+
 # vault Values
 vault:
   enable: false
@@ -55,11 +55,11 @@ vault:
     name: vault
     create: false
   vault_kms_id: ""
-  vault_seal_type: "awskms"
+  vault_seal_type: ""
   vault_dns: ""
 
 #postgres
 postgresql:
   enable: false
-  secretName: "postgresql-secret"
+  secretName: ""
   imageTag: "13.5.0-debian-10-r87"
