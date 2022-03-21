@@ -1,4 +1,4 @@
-apiVersion: v2
+apiVersion: THISSHOULDFAIL
 name: add-ons
 description: App of Apps for Kubernetes Cluster add-ons
 type: application
